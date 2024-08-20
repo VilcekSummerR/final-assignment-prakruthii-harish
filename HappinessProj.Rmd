@@ -1,7 +1,7 @@
 ---
-title: "Happiness_Proj"
+title: "Exploring Global Happiness: A Comprehensive Analysis of the Impact of Socio-Economic Factors and Health on Happiness Scores Across Regions"
 author: "Prakruthi Harish"
-date: "2024-08-09"
+date: "2024-08-19"
 output: slidy_presentation
 ---
 
@@ -10,36 +10,47 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r}
+
 # Set a CRAN mirror
 options(repos = c(CRAN = "https://cran.rstudio.com/"))
 
 ```
-## Background
+## Section 1: Background
 
-What problem?
-How does the data identify that problem?
-How does analysing data provide a plausible solution towards that problem?
-What previous studies have been demonstrated in analyzing the trends in data?
-In your study, what are you trying to accomplish and why do you think this is the right approach?
-Overall summary of what you have done in this project - DO not put cleaning and all, but focus on EDA, understanding stastical distributions of happiness as a factor of other params across several regions.
+This project addresses the crucial question of what drives global happiness, moving beyond traditional economic measures like GDP. It focuses on how various socio-economic factors influence the Life Ladder score, a key indicator of happiness, and how these influences differ across regions and countries. Understanding these dynamics is vital for policymakers aiming to improve citizens' quality of life. Using data from the World Happiness Report, the project analyzes variables such as GDP per capita, social support, life expectancy, freedom of choice, generosity, and perceptions of corruption. 
 
-This analysis explores the World Happiness Reports for the years 2005-2023 and 2024. The goal is to understand the global well-being trends, the impact of various socio-economic factors on happiness, and to identify the happiest and unhappiest countries.
+By exploring these factors, the project highlights patterns and correlations that explain variations in happiness globally, offering data-driven insights for policy interventions. Helliwell et.al (2019) in the World Happiness Report emphasized the impact of economic and social factors on happiness. This project expands on that analysis by incorporating a broader range of economic measures and offering a multi-regional perspective. By examining these factors over time, the project provides deeper insights into the trends that shape global happiness.
 
-## Methods
+The primary objective is to understand the correlation between various factors and their impact on happiness, identifying region-specific trends and global patterns. The project employs exploratory data analysis (EDA), using statistical tests and visualizations like histograms, Q-Q plots, box plots, and interactive dashboards. These findings offer actionable solutions for enhancing well-being worldwide.
 
-What is the dataset you are working on? What is the source of the data and size of the data - how many rows and columns? Please mention if you are using two datasets and describe them.
-What are the data preprocessing steps taken / data cleaning to make the data ready for analysis? - here you can have subpoints within method, for example Data Cleaning can be Section 2.1
-Next, after clean data - what is the next step you take to address the challenge or your goal for this project? - here write a paragrpah for methods.
-For example, say first you created a hisotgram plot - describe that in this project, to analyze the impact of happiness score for different regions in the world byu several factors, a histogram plot was created for each parameter to understand the data distributions. 
-Next, however the histogram didn't give this or you wanted to do something more, that's why you did XXX next step.
-Next, to analyze XXX, you crteated an interactive dashboard
+----------
 
-At the end of methods you mention, the code to implement each of the above methods along with the results obtained is shown below. The results include visualizations and analysis.
+## Section 2: Methods
 
+This project analyzes two key datasets from the World Happiness Report: one covering 2005-2023 for a broad temporal view, and another focused on 2024 for current socio-economic insights. These datasets, sourced from the World Happiness Report and Kaggle, are vital for understanding both short-term and long-term global well-being. The data, gathered through the Gallup World Poll, includes metrics like GDP per capita, social support, life expectancy, and more, across 150+ countries. The 2024 dataset contains 143 rows and 12 columns, while the 2005-2023 dataset has 2363 rows and 11 columns.
 
-## Implementation and Results 
+2.2. Data Cleaning and Pre-processing
 
-## Step 1: Install and load libraries
+It is essential to ensure that the data is clean and ready for exploration before starting the analysis. So the pre-processing step involved addressing missing values, non-ASCII characters, and other potential data inconsistencies. Missing values were handled by imputing them with the mean of the respective columns. This approach ensured that the data remained representative and accurate. Additionally, non-ASCII characters were removed from the country names to avoid errors during analysis and visualization. These pre-processing steps were crucial to maintain the integrity of the dataset and to ensure reliable results.
+
+----------
+
+2.3. Exploratory Data Analysis (EDA)
+
+The first step in the analysis carried out in this project was to explore the distribution of key variables, including Ladder score, GDP per capita, and Social Support. This was accomplished by visualizing the data through histograms, which provided initial insights into the overall trends and highlighted any anomalies or patterns in the data. However, while histograms provided a general sense of the data distribution, they did not offer detailed insights into the normality of the data. To address this, Q-Q plots were generated to more assess whether the variables followed a normal distribution. This step was crucial for determining the suitability of parametric statistical tests in subsequent analyses. However, Q-Q plots alone did not reveal how these distributions varied across different regions. In order to fill this gap box plots were employed to examine the regional distribution of Ladder scores within the 2024 dataset, offering a more granular view of how happiness varied across different regions. To further contextualize these findings, a pie chart was created to visualize the distribution of countries by region. This step clarified the sample size for each region, thereby enhancing the interpretation of the box plot findings. While this added a layer of understanding about regional representation, it still didn't explain how factors like health might influence happiness.
+
+Further analysis focused on the relationship between health and happiness, with the average Healthy Life Expectancy across regions being plotted to explore how disparities in health might influence regional happiness levels. An interactive choropleth map was then created to track changes in happiness scores over time. This dynamic approach allowed for a comprehensive understanding of global happiness trends over the years. However, this broader view needed to be complemented by a more focused analysis. Thus, a comparative analysis was conducted to identify the happiest and unhappiest countries based on their cumulative Ladder scores. This helped pinpoint specific countries that consistently ranked at the top or bottom of the happiness spectrum. This step was followed by statistical validation through normality checks and T-tests. 
+The correlations between various socio-economic factors and happiness were analyzed, both at the country and regional levels. To visualize the relationships between the Ladder score and various socio-economic factors, scatter plots with regression lines were created which confirmed the linearity and strength of these relationships. This provided a detailed view, yet to enhance the depth of analysis, an advanced interactive visualization was created. This allowed for a more granular exploration of how different factors influence happiness across regions. To further deepen the analysis, an advanced interactive visualization was created. This allowed for a more granular exploration of how different factors influence happiness across regions, offering a more nuanced understanding of the complex dynamics at play.
+
+The code to implement each of these methods, along with the results obtained, is presented below. The results include a series of visualizations and analyses that provide insights into the key drivers of happiness across the globe.
+
+Note: Please scroll down the Slidey page to explore the results and detailed analysis.
+
+----------
+
+## Section 3: Implementation and Results 
+
+3.1. Install and load libraries
 
 This step loads all the packages required for exploratory data visualization and analysis conducted in this project.
 
@@ -67,20 +78,23 @@ library(dplyr)
 
 ```
 
-## Step 2: Load the Datasets 
+3.2. Load the Datasets 
 
 This step imports the datasets and provides a preliminary understanding of structure and content of data. This step helps identify data types and certain variable format inconsistencies in the datasets early in the process.
 
 ```{r}
-# Specify the directory containing the CSV files
-data_directory <- "/Users/akash/Documents/NYU/Programming for Data Analysis - R Prog/R-Project/Dataset"
-
-# List all CSV files in the directory
-csv_files <- list.files(path = data_directory, pattern = "*.csv", full.names = TRUE)
 
 # Load the datasets
-ds_2024 <- read.csv('/Users/akash/Documents/NYU/Programming for Data Analysis - R Prog/R-Project/Dataset/World-happiness-report-2024.csv')
-ds_2023 <- read.csv('/Users/akash/Documents/NYU/Programming for Data Analysis - R Prog/R-Project/Dataset/World-happiness-report-updated_2024.csv')
+ds_2024 <- read.csv('https://raw.githubusercontent.com/VilcekSummerR/final-assignment-prakruthii-harish/main/World-happiness-report-2024.csv')
+ds_2023 <- read.csv('World-happiness-report-updated_2024.csv') # The raw file was getting downloaded so took the path from github
+
+# Check the number of rows and columns in the 2024 dataset
+n_rows_2024 <- nrow(ds_2024)
+n_cols_2024 <- ncol(ds_2024)
+cat("The 2024 dataset has", n_rows_2024, "rows and", n_cols_2024, "columns.\n")
+n_rows_2023 <- nrow(ds_2023)
+n_cols_2023 <- ncol(ds_2023)
+cat("The 2005-2023 dataset has", n_rows_2023, "rows and", n_cols_2023, "columns.\n")
 
 # Inspect the datasets
 str(ds_2024)
@@ -91,7 +105,7 @@ head(ds_2024)
 head(ds_2023)
 
 ```
-## Step 3: Visualize data distributions
+3.3. Visualize data distributions
 
 Visualize the data with histogram to understand the distribution of key variables like Ladder score, GDP per capita, Social Support, etc., in both the datasets. This step provides a summary of the general trends in the data through histogram distribution plots.
 
@@ -126,7 +140,7 @@ In summary, the two datasets reveal trends in global well-being, with 2024 refle
 
 ----------
 
-## Step 4: Data cleaning
+3.4. Data cleaning
 
 This step identifies and addresses any missing values in the datasets. This is because missing values can distort the observed patterns and trends. Therefore, it's essential to identify and address missing data to maintain the integrity of this Exploratory Data Analysis (EDA). 
 
@@ -146,7 +160,7 @@ print(null_col_names_2023)
 
 ```
 
-## Step 5: Handle missing values
+3.5. Handle missing values
 
 To handle missing values, 'NAs' and 'NaNs' are replaced with mean of the respective columns to ensure data integrity and consistency for further analysis. Here, 'grouping' ensures that calculating the 'mean' and filling in missing values are done within the context of each country, maintaining the integrity of country-specific data. And 'ungrouping' allows the 'mean' to be applied across the entire dataset, which is necessary for filling in any gaps left by the grouped operation.
 
@@ -182,7 +196,7 @@ head(ds_2023_clean)
 
 ```
 
-## Step 6: Normality Check Using Q-Q Plot
+3.6. Normality Check Using Q-Q Plot
 
 The histogram visualization performed in Step 3 gave a quick sense of how data is spread across different values and showed how certain varibles deviated from the normal distribution. However, to specifically understand where the deviations occurs, a Normality check using Q-Q plot is performed in this step. These Q-Q plots serve as a follow-up to confirm the normality or non-normality suggested by the histograms. This step is a validation for the analysis made in Step 3.
 
@@ -235,7 +249,7 @@ Analysis: The Q-Q plots show that Ladder Scores in both the datasets mostly foll
 
 ----------
 
-## Step 7: Box Plot Analysis
+3.7. Box Plot Analysis
 
 In the previous step, the Q-Q plots provided an overall assessment of the distribution of Ladder Score and other variables in the datasets. However, they did not offer insights into how these distributions differ across specific regions. Therefore, Box plots are employed in this step to specifically visualize the distribution of the Ladder Score across different regions in the 2024 dataset. This transition from a general examination of distributional normality to a more detailed investigation allows for the identification of regional variations and any outliers within the distribution.
 
@@ -254,7 +268,7 @@ Analysis: From the above boxplot visualization, we can identify that Western Eur
 
 ----------
 
-## Step 8: Distribution of Countries by Region
+3.8. Distribution of Countries by Region
 
 The Box plots in the previous step, gave insights into the spread and central tendency of the Ladder Scores across regions, but they did not reveal whether these observations were based on a large or small number of countries, which could potentially affect the reliability and generalizability of the findings.
 
@@ -287,7 +301,7 @@ Analysis: The pie chart reveals that Sub-Saharan Africa constitutes the largest 
 
 ----------
 
-## Step 9: Mean Healthy Life Expectancy Across Regions
+3.9. Mean Healthy Life Expectancy Across Regions
 
 In the previous steps, the analysis of the distribution of Ladder Scores and the number of countries per region provided insights into the overall happiness and its variability across different regions. However, happiness could be influenced by various factors, including health. So, to gain a deeper understanding of the regional differences in well-being, it is essential to examine 'Healthy Life Expectancy at birth', which is a critical component of overall quality of life and well-being. Healthy life expectancy is calculated as the average number of years a newborn infant would live in good health. The plot of 'Mean Healthy Life Expectancy across regions' adds another layer of understanding by highlighting the disparities in health, which could explain some of the observed differences in the Ladder Scores across different regions. 
 
@@ -327,7 +341,7 @@ In summary, the analysis of Healthy Life Expectancy provides crucial context for
 
 ----------
 
-## Step 10: Analyze global happiness scores over entire time period
+3.10. Analyze global happiness scores over entire time period
 
 In the previous steps, the analysis focused on regional trends and correlations between happiness, health, and other socio-economic factors. These analyses were primarily region-based, offering a high-level view of the data. The interactive choropleth map in this step provides a dynamic perspective on how happiness has changed over time across different countries, thereby offering insights into the overall trends in global happiness. This map offers a different perspective by emphasizing geographic distribution and temporal changes. By introducing the dimension of time (in years), the choropleth map enables an analysis of how happiness scores have evolved over time within specific countries.
 
@@ -388,7 +402,7 @@ However, by 2015, Denmark dropped to the third position on the list of happiest 
 
 ----------
 
-## Step 11: Comparative Analysis of Happiness Scores - Identify Happiest and Unhappiest Countries
+3.11. Comparative Analysis of Happiness Scores - Identify Happiest and Unhappiest Countries
 
 After the choropleth map, which provided a temporal and geographical overview of the Ladder scores across countries over time, the comparative analysis of happiness scores was performed to pinpoint specific countries that consistently rank as the happiest and unhappiest based on their cumulative Ladder scores. It transitions from broad, dynamic visualizations to a more focused analysis, allowing for the identification of specific outliers (both positive and negative) in terms of happiness.
 
@@ -440,7 +454,7 @@ In summary, these bar plots show a wide contrast in the happiness scores between
 
 ----------
 
-## Step 12: Check for Normality
+3.12. Check for Normality
 
 After identifying the happiest and unhappiest countries, it is essential to check the normality of the entire dataset and the subset of happiest and unhappiest countries to make appropriate selection of the statistical test to be performed. Understanding whether the data is normally distributed will guide the choice between parametric and non-parametric tests. And a Shapiro-Wilk normality test on the entire dataset ensures that the subsequent analysis is accurate and reliable. If the data is normally distributed, parametric tests such as the T-test, which have higher statistical power, can be used. If the data is not normally distributed, non-parametric tests would be more appropriate. 
 
@@ -472,11 +486,11 @@ print(shapiro_test_unhappiest)
 
 Analysis of Shapiro-Wilk Normality test: The p-value is greater than 0.05 for Happiest and Unhappiest countries (p-value = 0.3358 and p-value = 0.5181), indicating that the data for both the happiest and unhappiest countries individually are normally distributed.
 
-Thus, the data of Happiest and Unhappiest countries can be tested individually using a parametric test (T-test) since these two data when considered individually are normally distributed. T-test can be used to compare the mean happiness scores(Total Life Ladder) between the happiest and unhappiest countries. 
+Thus, the data of Happiest and Unhappiest countries can be tested individually using a parametric test (T-test) since these two data when considered individually are normally distributed. T-test can be used to compare the mean happiness scores (Total Life Ladder) between the happiest and unhappiest countries. 
 
 ----------
 
-## Step 13: Perform T- Test
+3.13. Perform T- Test
 
 In order to statistically validate the differences between the happiest and unhappiest countries, a T-test is performed.
 
@@ -498,7 +512,7 @@ In summary, the T-test results show that the happiest countries have a significa
 
 ----------
 
-## Step 14: Correlation Analysis of Factors Influencing Happiness
+3.14. Correlation Analysis of Factors Influencing Happiness
 
 After confirming the significant difference in happiness scores between the happiest and unhappiest countries, the next step is to understand what drives these differences. This step analyzes the correlation between various factors (such as GDP per capita, social support, etc.) and the Life Ladder score for the happiest and unhappiest countries. Understanding these relationships will help uncover the key factors influencing happiness in these countries.
 
@@ -553,7 +567,7 @@ Analysis: The analysis reveals that different factors significantly impact happi
 
 ----------
 
-## Step 15: Regional Correlation Analysis
+3.15. Regional Correlation Analysis
 
 After examining the correlation factors in the happiest and unhappiest countries, it's important to expand the analysis to a regional level. This step explores how different factors correlate with happiness scores across various regions, helping to identify region-specific trends and influences.
 
@@ -585,7 +599,7 @@ Analysis: The heatmap reveals that the relationship between happiness and variou
 
 ----------
 
-## Step 16: Analysis of happiness score vs socio-economic factors 
+3.16. Analysis of happiness score vs socio-economic factors 
 
 The heatmap in the previous step underscores the importance of regional context in understanding the factors that influence happiness and suggests that a one-size-fits-all approach may not be appropriate when assessing global happiness metrics. It highlights the need for region-specific strategies to improve happiness and well-being. To further explore these regional trends and the relationships between happiness and various socio-economic factors, scatter plots with regression lines are created. This step provides a more detailed visualization, allowing for the examination of linearity and the strength of these relationships, thereby confirming and complementing the findings from the correlation analysis.
 
@@ -633,9 +647,11 @@ Perception of Corruption: A more complex and weaker positive relationship, sugge
 
 ----------
 
-## Step 17: Interactive dashboard to investigate global impact of socio-economic factors on happiness 
+3.17. Interactive dashboard to investigate global impact of socio-economic factors on happiness 
 
 To enhance the depth of analysis, an advanced interactive visualization is created. This interactive plot allows for a more granular exploration of how different factors influence happiness across regions. By enabling the examination of region-specific correlations, this visualization provides an opportunity to interact with the data dynamically, offering deeper insights into the complex relationships between happiness and its drivers.
+
+Note: In slidey mode, every click, including those on dropdown menus, may advance to the next slide. After selecting variables from the dropdown, please manually navigate back to the page to explore the interactive dashboard. 
 
 ```{r}
 # Create the interactive plot with updated filtering
@@ -700,9 +716,26 @@ Analysis: This interactive visualization provides a dynamic tool for exploring h
 
 ----------
 
-## Conclusion and Future Scope
+## Section 4: Conclusion and Future Scope
 
-This exploratory data analysis (EDA) has provided a comprehensive examination of the factors influencing global happiness. By utilizing a variety of statistical tests and visualizations, key insights into the drivers of happiness have been uncovered. The analysis has highlighted the importance of regional context, the significant role of economic and social factors, and the complexity of the relationships that contribute to overall well-being. The advanced interactive visualization serves as a powerful tool for further exploration, offering a dynamic way to delve deeper into the data. This thorough EDA lays the foundation for more targeted research and interventions aimed at improving happiness on both a global and regional scale.
+This exploratory data analysis (EDA) has provided a comprehensive examination of the factors influencing global happiness. Through a combination of statistical tests and visualizations, key insights into the drivers of happiness have been uncovered, highlighting the importance of regional context and the significant role of economic and social factors. The analysis also reveals the complexity of the relationships that contribute to overall well-being.
 
-## References
+The advanced interactive visualization developed in this project serves as a powerful tool for further exploration, offering a dynamic way to delve deeper into the data. However, while the current analysis provides valuable insights, it also opens avenues for further exploration and refinement. Incorporating more sophisticated statistical techniques, such as multivariate regression or machine learning, could yield even deeper insights into the complex relationships between socio-economic factors and happiness.
 
+Additionally, the interactive dashboard could be enhanced with features like multi-factor analysis, real-time updates, and predictive modeling to offer more dynamic and actionable insights.
+
+This thorough EDA not only lays the foundation for more targeted research but also supports interventions aimed at improving happiness on both a global and regional scale.
+
+----------
+
+# References
+
+1. Helliwell JF, Layard R, Sachs JD. World Happiness Report 2019.
+
+2. Scatterplot with regression fit and automatic text repel – the R Graph Gallery [Internet]. [cited 2024 Aug 19]. Available from: https://r-graph-gallery.com/web-scatterplot-corruption-and-human-development.html
+ 
+3. Happiness of the younger, the older, and those in between [Internet]. worldhappiness.report. Available from: https://worldhappiness.report/ed/2024/happiness-of-the-younger-the-older-and-those-in-between/
+
+4. Tableau.com. 2024. Available from: https://public.tableau.com/app/profile/worldhappiness/viz/2024Draft/Figure2_
+
+5. World Happiness Report. Explore the World Happiness Report data [Internet]. worldhappiness.report. 2023. Available from: https://worldhappiness.report/data/
