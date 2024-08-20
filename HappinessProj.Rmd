@@ -86,7 +86,7 @@ This step imports the datasets and provides a preliminary understanding of struc
 
 # Load the datasets
 ds_2024 <- read.csv('https://raw.githubusercontent.com/VilcekSummerR/final-assignment-prakruthii-harish/main/World-happiness-report-2024.csv')
-ds_2023 <- read.csv('World-happiness-report-updated_2024.csv') # The raw file was getting downloaded so took the path from github
+ds_2023 <- read.csv('https://raw.githubusercontent.com/VilcekSummerR/final-assignment-prakruthii-harish/main/World-happiness-report-updated_2024.csv') 
 
 # Check the number of rows and columns in the 2024 dataset
 n_rows_2024 <- nrow(ds_2024)
