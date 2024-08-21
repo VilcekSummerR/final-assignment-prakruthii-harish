@@ -1,3 +1,4 @@
+FL Notes: Well done, A grade. Impressive use of slidey and nice visuals. The one sampled T test may not be the most optimal way to compare the happiest and least happy scores, as you could run a two sample of both. 
 ---
 title: "Exploring Global Happiness: A Comprehensive Analysis of the Impact of Socio-Economic Factors and Health on Happiness Scores Across Regions"
 author: "Prakruthi Harish"
